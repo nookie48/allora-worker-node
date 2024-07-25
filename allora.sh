@@ -18,7 +18,7 @@ execute_with_prompt() {
 
 echo -e "${BOLD}${UNDERLINE}${DARK_YELLOW}Requirement for running allora-worker-node${RESET}"
 echo
-echo -e "${BOLD}${DARK_YELLOW}Operating System : Ubuntu 22.04${RESET}"
+echo -e "${BOLD}${DARK_YELLOW}Operating System : debian 22.04${RESET}"
 echo -e "${BOLD}${DARK_YELLOW}CPU : Min of 1/2 core.${RESET}"
 echo -e "${BOLD}${DARK_YELLOW}RAM : 2 to 4 GB.${RESET}"
 echo -e "${BOLD}${DARK_YELLOW}Storage : SSD or NVMe with at least 5GB of space.${RESET}"
@@ -47,9 +47,9 @@ execute_with_prompt "sudo apt install python3 python3-pip -y"
 echo
 
 echo -e "${BOLD}${DARK_YELLOW}Installing Docker...${RESET}"
-execute_with_prompt 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg'
+execute_with_prompt 'curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg'
 echo
-execute_with_prompt 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null'
+execute_with_prompt 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null'
 echo
 execute_with_prompt 'sudo apt-get update'
 echo
